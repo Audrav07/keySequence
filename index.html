@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<style>
+	.title{
+		color: #83e5c0;
+		font-size: 2rem;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 120px;
+	}
+</style>
+<body>
+	<div class="title">If you like horses you'll like...</div>
+<script>
+	const pressed = [];
+	const secretCode = 'audrey';
+
+	window.addEventListener('keyup', (e) => {
+		console.log(e.key);
+		pressed.push(e.key);
+		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+		if(pressed.join('').includes(secretCode)){
+			console.log('DING');
+			cornify_add();
+		}
+		console.log(pressed);
+	});
+</script>
+</body>
+</html>
